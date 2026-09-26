@@ -6,12 +6,14 @@
   <title>Trance Music Addicted - TMA Core</title>
 
   <style>
+    /* IMPORT NOWOCZESNEJ KLUBOWEJ CZCIONKI MONTSERRAT */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
+
     /* =========================================
        1. ZMIENNE SYSTEMOWE I BAZA
        ========================================= */
     :root {
       --bg-dark: #05070e;
-      /* NOWE: Jaśniejsze, bardziej żywe szkło z gradientem */
       --glass-bg: linear-gradient(135deg, rgba(28, 42, 72, 0.75) 0%, rgba(12, 18, 32, 0.85) 100%);
       --glass-border: rgba(0, 212, 255, 0.4);
       --glass-glow: inset 0 0 25px rgba(0, 212, 255, 0.15);
@@ -37,7 +39,8 @@
       background-position: center top;
       background-attachment: fixed;
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      /* Zaktualizowana czcionka na nowoczesny Montserrat */
+      font-family: 'Montserrat', sans-serif;
       padding: 16px;
       display: flex;
       justify-content: center;
@@ -78,7 +81,7 @@
       padding: 5px 7px;
       flex-shrink: 0;
       line-height: 1;
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); /* Lekki blask pod logo */
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
     }
 
     .brand-badge .t-text {
@@ -125,14 +128,14 @@
     }
 
     /* =========================================
-       3. SZKLANE KARTY (Wspólna klasa dla wszystkich szafeczek)
+       3. SZKLANE KARTY (Wspólna klasa)
        ========================================= */
     .glass-card {
-      background: var(--glass-bg); /* Nowy, żywszy gradient */
+      background: var(--glass-bg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--glass-border);
-      border-top: 1px solid rgba(255, 255, 255, 0.4); /* Odbicie światła od góry */
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 20px;
       padding: 20px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), var(--glass-glow);
@@ -159,7 +162,7 @@
     .hero-desc {
       font-size: 0.8rem;
       line-height: 1.45;
-      color: #e2e8f0; /* Rozjaśniony tekst opisu */
+      color: #e2e8f0;
       margin-bottom: 18px;
     }
 
@@ -272,7 +275,6 @@
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-      /* Żeby plakat się nie spłaszczał */
       aspect-ratio: 2 / 3;
       object-fit: cover; 
     }
@@ -281,29 +283,35 @@
       flex: 1;
     }
 
+    /* ZAKTUALIZOWANA TYPOGRAFIA DLA EVENT RADARU */
     .radar-date {
-      font-size: 0.8rem;
-      color: #e2e8f0;
+      font-size: 0.85rem;
+      color: var(--neon-blue);
       margin-bottom: 4px;
-      font-weight: 700;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
     }
 
     .radar-timer {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 900;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       color: #ffffff;
-      text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 20px rgba(0, 212, 255, 0.2);
       margin-bottom: 4px;
+      line-height: 1;
     }
 
     .radar-labels {
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       color: var(--text-muted);
       display: flex;
       gap: 22px;
       margin-bottom: 12px;
       padding-left: 5px;
+      letter-spacing: 2px;
+      font-weight: 700;
     }
 
     .radar-lineup {
@@ -328,10 +336,11 @@
     /* =========================================
        6. AUDIO & MEDIA HUB (WIDEO)
        ========================================= */
+    /* Zaktualizowane na dwie równe kolumny! */
     .video-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
     .video-wrapper {
@@ -351,7 +360,7 @@
     }
 
     .video-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 800;
       margin-bottom: 10px;
       text-transform: uppercase;
@@ -359,10 +368,107 @@
     }
 
     .video-desc {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: #e2e8f0;
       margin-top: 12px;
       line-height: 1.45;
+    }
+
+    /* =========================================
+       7. CZTERY MODUŁY (KWADRATY)
+       ========================================= */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .module-card {
+      background: rgba(12, 18, 32, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 16px 4px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .module-card.m-community { border-color: rgba(0, 212, 255, 0.4); }
+    .module-card.m-interviews { border-color: rgba(168, 85, 247, 0.4); }
+    .module-card.m-music { border-color: rgba(255, 51, 75, 0.4); }
+    .module-card.m-events { border-color: rgba(56, 189, 248, 0.4); }
+
+    .module-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .module-title {
+      font-size: 0.55rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .module-desc {
+      font-size: 0.45rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+
+    /* =========================================
+       8. DOLNY PASEK NAWIGACJI (BOTTOM BAR)
+       ========================================= */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(5, 7, 14, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0 24px 0;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .nav-item.active {
+      color: var(--neon-blue);
+    }
+
+    .nav-icon {
+      font-size: 1.3rem;
+    }
+
+    .footer-brand {
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 6px;
+      color: var(--text-muted);
+      padding: 24px 0 100px 0; /* Margines na dole żeby pasek nie zasłaniał */
+      font-weight: 800;
     }
   </style>
 </head>
@@ -423,8 +529,7 @@
         <div class="radar-subtitle">Ergo Arena<br>Gdańsk / Sopot</div>
       </div>
       <div class="radar-content">
-        <!-- Zostawiłem tu link do Twojego pliku -->
-        <img src="images.jpeg" class="radar-poster" alt="Resistance">
+        <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Resistance">
         <div class="radar-info">
           <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
           <div class="radar-timer">48 : 12</div>
@@ -446,7 +551,7 @@
         <div class="radar-subtitle">Gelredome<br>Arnhem</div>
       </div>
       <div class="radar-content">
-        - <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Resistance"> Pancerny zastępczy link z laserami do czasu wgrania własnego pliku -->
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80" class="radar-poster" alt="Transmission">
         <div class="radar-info">
           <div class="radar-date">28 LISTOPADA 2026</div>
           <div class="radar-timer">96 : 39</div>
@@ -470,29 +575,84 @@
 
     <div class="video-grid">
       <!-- WIDEO 1: ASOT AMSTERDAM -->
-      <section class="glass-card">
-        <div class="video-label" style="color: var(--tma-red);">🔴 LIVE: ASOT 1296 AMSTERDAM</div>
+      <section class="glass-card" style="padding: 12px;">
+        <div class="video-label" style="color: var(--tma-red);">🔴 ASOT 1296</div>
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </div>
         <div class="video-desc">
-          Polska ekipa TMA w legendarnym studiu Armada Music w Amsterdamie! Spotkanie z Arminem van Buurenem.
+          Polska ekipa TMA w legendarnym studiu Armada!
         </div>
       </section>
 
       <!-- WIDEO 2: ATB KRAKÓW -->
-      <section class="glass-card">
-        <div class="video-label" style="color: var(--neon-blue);">🎵 RELACJA: ATB KRAKÓW</div>
+      <section class="glass-card" style="padding: 12px;">
+        <div class="video-label" style="color: var(--neon-blue);">🎵 ATB KRAKÓW</div>
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
         </div>
         <div class="video-desc">
-          No more words needed. Magiczna, wyprzedana noc w krakowskim Klubie Studio z legendarnym André Tannebergerem.
+          Magiczna noc w krakowskim Klubie Studio z ATB.
         </div>
       </section>
     </div>
 
-  </div>
+    <!-- =========================================
+         STREFA: 4 KWADRATOWE MODUŁY
+         ========================================= -->
+    <div class="modules-grid">
+      <div class="module-card m-community">
+        <div class="module-icon">👥</div>
+        <div class="module-title">Community</div>
+        <div class="module-desc">Ludzie. Pasja.</div>
+      </div>
+      <div class="module-card m-interviews">
+        <div class="module-icon">🎙️</div>
+        <div class="module-title">Wywiady</div>
+        <div class="module-desc">Artyści. Historie.</div>
+      </div>
+      <div class="module-card m-music">
+        <div class="module-icon">🎵</div>
+        <div class="module-title">Muzyka</div>
+        <div class="module-desc">Sety. Klasyki.</div>
+      </div>
+      <div class="module-card m-events">
+        <div class="module-icon">🗓️</div>
+        <div class="module-title">Eventy</div>
+        <div class="module-desc">Kalendarz.</div>
+      </div>
+    </div>
+
+    <!-- =========================================
+         STOPKA
+         ========================================= -->
+    <div class="footer-brand">
+      TRANCE MUSIC ADDICTED
+    </div>
+
+  </div> <!-- ZAMKNIĘCIE .app-container -->
+
+  <!-- =========================================
+       DOLNE MENU PRZYKLEJONE DO EKRANU
+       ========================================= -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <span class="nav-icon">👥</span>
+      <span>Community</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🎙️</span>
+      <span>Wywiady</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🎵</span>
+      <span>Muzyka</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🗓️</span>
+      <span>Wydarzenia</span>
+    </a>
+  </nav>
 
 </body>
 </html>
