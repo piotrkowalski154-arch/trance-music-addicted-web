@@ -485,7 +485,7 @@
           <span class="t-addicted">ADDICTED</span>
         </div>
         <div class="brand-details">
-          <span class="brand-version">TMA-CORE v1.0</span>
+          
           <span class="brand-sub">Polska społeczność fanów muzyki trance</span>
         </div>
       </div>
@@ -532,7 +532,7 @@
         <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Resistance">
         <div class="radar-info">
           <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
-          <div class="radar-timer">48 : 12</div>
+          <div id="timer-resistance" class="radar-timer">48 : 12</div>
           <div class="radar-labels">
             <span>DNI</span><span>GODZ.</span><span>MIN.</span>
           </div>
@@ -554,7 +554,8 @@
         <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&q=80" class="radar-poster" alt="Transmission">
         <div class="radar-info">
           <div class="radar-date">28 LISTOPADA 2026</div>
-          <div class="radar-timer">96 : 39</div>
+         <!-- Dodajemy id="timer-transmission" -->
+<div id="timer-transmission" class="radar-timer">96 : 39</div>
           <div class="radar-labels">
             <span>DNI</span><span>GODZ.</span><span>MIN.</span>
           </div>
@@ -653,6 +654,50 @@
       <span>Wydarzenia</span>
     </a>
   </nav>
+
+  <script>
+    // 1. USTAWIANIE DAT DOCELOWYCH (Kiedy startują imprezy)
+    // Złoty Skaner wykrył daty: Resistance (10 paź 2026), Transmission (28 lis 2026)
+    const resistanceDate = new Date("Oct 10, 2026 20:00:00").getTime();
+    const transmissionDate = new Date("Nov 28, 2026 20:00:00").getTime();
+
+    // 2. GŁÓWNA FUNKCJA SILNIKA (Oblicza i wkleja cyfry)
+    function startTimers() {
+      // Pobieramy dokładny, aktualny czas w tej sekundzie
+      const now = new Date().getTime(); 
+
+      // --- OBLICZENIA DLA RESISTANCE POLAND ---
+      const diffRes = resistanceDate - now;
+      
+      // Matematyka: wyciągamy z różnicy czasu pełne dni, godziny i minuty
+      const daysRes = Math.floor(diffRes / (1000 * 60 * 60 * 24));
+      const hoursRes = Math.floor((diffRes % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutesRes = Math.floor((diffRes % (1000 * 60 * 60)) / (1000 * 60));
+      
+      // Łapiemy nasz timer Resistance i wstrzykujemy mu format: DNI : GODZ : MIN
+      document.getElementById("timer-resistance").innerHTML = 
+        daysRes + " : " + (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + (minutesRes < 10 ? "0" + minutesRes : minutesRes);
+
+
+      // --- OBLICZENIA DLA TRANSMISSION FESTIVAL ---
+      const diffTrans = transmissionDate - now;
+      
+      const daysTrans = Math.floor(diffTrans / (1000 * 60 * 60 * 24));
+      const hoursTrans = Math.floor((diffTrans % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutesTrans = Math.floor((diffTrans % (1000 * 60 * 60)) / (1000 * 60));
+
+      // Łapiemy nasz timer Transmission i wstrzykujemy wynik
+      document.getElementById("timer-transmission").innerHTML = 
+        daysTrans + " : " + (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans);
+    }
+
+    // 3. ODPALENIE ZAPŁONU
+    // Odpalamy funkcję od razu po załadowaniu strony
+    startTimers();
+    
+    // Mówimy przeglądarce: "Powtarzaj tę funkcję co równe 1000 milisekund (1 sekunda)"
+    setInterval(startTimers, 1000);
+  </script>
 
 </body>
 </html>
