@@ -534,7 +534,7 @@
           <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
           <div id="timer-resistance" class="radar-timer">48 : 12</div>
           <div class="radar-labels">
-            <span>DNI</span><span>GODZ.</span><span>MIN.</span>
+           <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
           </div>
           <div class="radar-lineup">
             <div class="lineup-title">STATUS:</div>
@@ -557,7 +557,7 @@
          <!-- Dodajemy id="timer-transmission" -->
 <div id="timer-transmission" class="radar-timer">96 : 39</div>
           <div class="radar-labels">
-            <span>DNI</span><span>GODZ.</span><span>MIN.</span>
+         <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
           </div>
           <div class="radar-lineup">
             <div class="lineup-title">LINE-UP:</div>
@@ -658,46 +658,45 @@
   </nav>
 
   <script>
-    // 1. USTAWIANIE DAT DOCELOWYCH (Kiedy startują imprezy)
-    // Złoty Skaner wykrył daty: Resistance (10 paź 2026), Transmission (28 lis 2026)
     const resistanceDate = new Date("Oct 10, 2026 20:00:00").getTime();
     const transmissionDate = new Date("Nov 28, 2026 20:00:00").getTime();
 
-    // 2. GŁÓWNA FUNKCJA SILNIKA (Oblicza i wkleja cyfry)
     function startTimers() {
-      // Pobieramy dokładny, aktualny czas w tej sekundzie
       const now = new Date().getTime(); 
 
-      // --- OBLICZENIA DLA RESISTANCE POLAND ---
+      // --- OBLICZENIA DLA RESISTANCE ---
       const diffRes = resistanceDate - now;
       
-      // Matematyka: wyciągamy z różnicy czasu pełne dni, godziny i minuty
       const daysRes = Math.floor(diffRes / (1000 * 60 * 60 * 24));
       const hoursRes = Math.floor((diffRes % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesRes = Math.floor((diffRes % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsRes = Math.floor((diffRes % (1000 * 60)) / 1000); // <--- NOWE: SEKUNDY!
       
-      // Łapiemy nasz timer Resistance i wstrzykujemy mu format: DNI : GODZ : MIN
+      // Dodane sekundy na końcu:
       document.getElementById("timer-resistance").innerHTML = 
-        daysRes + " : " + (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + (minutesRes < 10 ? "0" + minutesRes : minutesRes);
+        daysRes + " : " + 
+        (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + 
+        (minutesRes < 10 ? "0" + minutesRes : minutesRes) + " : " + 
+        (secondsRes < 10 ? "0" + secondsRes : secondsRes);
 
 
-      // --- OBLICZENIA DLA TRANSMISSION FESTIVAL ---
+      // --- OBLICZENIA DLA TRANSMISSION ---
       const diffTrans = transmissionDate - now;
       
       const daysTrans = Math.floor(diffTrans / (1000 * 60 * 60 * 24));
       const hoursTrans = Math.floor((diffTrans % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesTrans = Math.floor((diffTrans % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsTrans = Math.floor((diffTrans % (1000 * 60)) / 1000); // <--- NOWE: SEKUNDY!
 
-      // Łapiemy nasz timer Transmission i wstrzykujemy wynik
+      // Dodane sekundy na końcu:
       document.getElementById("timer-transmission").innerHTML = 
-        daysTrans + " : " + (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans);
+        daysTrans + " : " + 
+        (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + 
+        (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans) + " : " + 
+        (secondsTrans < 10 ? "0" + secondsTrans : secondsTrans);
     }
 
-    // 3. ODPALENIE ZAPŁONU
-    // Odpalamy funkcję od razu po załadowaniu strony
     startTimers();
-    
-    // Mówimy przeglądarce: "Powtarzaj tę funkcję co równe 1000 milisekund (1 sekunda)"
     setInterval(startTimers, 1000);
   </script>
 
