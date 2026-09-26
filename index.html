@@ -215,6 +215,39 @@
     .btn-pill.shop:hover {
       box-shadow: 0 4px 15px rgba(255, 51, 75, 0.3);
     }
+
+
+/* =========================================
+       5. PRZYCISK VIP (SUBSKRYPCJA)
+       ========================================= */
+    .btn-vip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15));
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      color: #ffd700;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+    }
+
+    .btn-vip:hover {
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.25), rgba(255, 140, 0, 0.25));
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    
   </style>
 </head>
 <body>
@@ -247,28 +280,59 @@
 
 </header>
 
-    <!-- 2. SZKLANA WIZYTÓWKA SPOŁECZNOŚCI (HERO) -->
+   <!-- 2. SZKLANA WIZYTÓWKA SPOŁECZNOŚCI (HERO) -->
     <section class="glass-card">
-      <div class="card-label">SZKLANA WIZYTÓWKA SPOŁECZNOŚCI (Hero TMA Hub)</div>
+      <div class="card-label">TRANCE MUSIC ADDICTED • 144K FOLLOWERS</div>
       <h1 class="hero-title">TRANCE IS FOR THE DREAMERS</h1>
       <p class="hero-desc">
-        Największa społeczność fanów, zbudowana na absolutnej pasji, relacjach i legendach muzyki elektronicznej. Odkryj nasz świat!
+        Od 16 lat z pasją promujemy muzykę trance, wydarzenia i artystów w Polsce i na świecie. Odkryj nasz świat!
       </p>
 
       <div class="social-row">
-        <a href="https://facebook.com/trancemusicaddicted" target="_blank" rel="noopener noreferrer" class="btn-pill primary">
-          <span>📘</span> Facebook
-        </a>
-        <a href="https://instagram.com/trancemusicaddicted" target="_blank" rel="noopener noreferrer" class="btn-pill primary">
-          <span>📷</span> Instagram
-        </a>
-        <a href="https://trance-music-addicted.myspreadshop.pl" target="_blank" rel="noopener noreferrer" class="btn-pill shop">
-          <span>👕</span> Spreadshop Merch
-        </a>
+        <a href="#" class="btn-pill primary"><span>📘</span> Facebook</a>
+        <a href="#" class="btn-pill primary"><span>📷</span> Instagram</a>
+        <a href="#" class="btn-pill shop"><span>👕</span> Spreadshop</a>
+      </div>
+      
+      <!-- NOWY PRZYCISK VIP POD SPODEM -->
+      <a href="https://www.facebook.com/MusicConnectsUs/subscribe" target="_blank" class="btn-vip">
+        ⭐ Zostań Subskrybentem VIP
+      </a>
+    </section>
+
+    <!-- 3. EVENT RADAR (ZAKTUALIZOWANY NA RESISTANCE) -->
+    <section class="glass-card">
+      
+      <div class="radar-header">
+        <div class="radar-title">
+          <span>🗓️</span> EVENT RADAR
+        </div>
+        <div class="radar-subtitle">
+          RESISTANCE POLAND<br>Gdańsk / Sopot
+        </div>
+      </div>
+
+      <div class="radar-content">
+        <!-- Tu w przyszłości wrzucisz plakat z logiem Resistance -->
+        <img src="https://via.placeholder.com/110x150/000000/ff334b?text=RESISTANCE" alt="Resistance Poster" class="radar-poster">
+
+        <div class="radar-info">
+          <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
+          <div class="radar-timer">48 : 12</div>
+          <div class="radar-labels">
+            <span>DNI</span>
+            <span>GODZ.</span>
+            <span>MIN.</span>
+          </div>
+          
+          <div class="radar-lineup">
+            <div class="lineup-title">STATUS:</div>
+            <div class="lineup-text">Bilety w sprzedaży! Ergo Arena czeka.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-  </div>
-
 </body>
 </html>
+   
