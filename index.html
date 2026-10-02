@@ -39,7 +39,6 @@
       background-position: center top;
       background-attachment: fixed;
       color: var(--text-main);
-      /* Zaktualizowana czcionka na nowoczesny Montserrat */
       font-family: 'Montserrat', sans-serif;
       padding: 16px;
       display: flex;
@@ -128,7 +127,7 @@
     }
 
     /* =========================================
-       3. SZKLANE KARTY (Wspólna klasa)
+       3. SZKLANE KARTY
        ========================================= */
     .glass-card {
       background: var(--glass-bg);
@@ -199,9 +198,6 @@
       background: rgba(255, 51, 75, 0.2);
     }
 
-    /* =========================================
-       4. PRZYCISK VIP
-       ========================================= */
     .btn-vip {
       display: flex;
       align-items: center;
@@ -223,7 +219,7 @@
     }
 
     /* =========================================
-       5. EVENT RADAR 
+       4. EVENT RADAR 
        ========================================= */
     .section-title {
       font-size: 1.15rem; 
@@ -283,7 +279,6 @@
       flex: 1;
     }
 
-    /* ZAKTUALIZOWANA TYPOGRAFIA DLA EVENT RADARU */
     .radar-date {
       font-size: 0.85rem;
       color: var(--neon-blue);
@@ -307,7 +302,7 @@
       font-size: 0.65rem;
       color: var(--text-muted);
       display: flex;
-      gap: 22px;
+      gap: 15px; /* Zmniejszone dla sekund */
       margin-bottom: 12px;
       padding-left: 5px;
       letter-spacing: 2px;
@@ -334,13 +329,12 @@
     }
 
     /* =========================================
-       6. AUDIO & MEDIA HUB (WIDEO)
+       5. AUDIO & MEDIA HUB (WIDEO)
        ========================================= */
-    /* Zaktualizowane na dwie równe kolumny! */
     .video-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: 1fr; /* ZMIANA: Jedna kolumna dla idealnego widoku mobile */
+      gap: 16px;
     }
 
     .video-wrapper {
@@ -375,13 +369,13 @@
     }
 
     /* =========================================
-       7. CZTERY MODUŁY (KWADRATY)
+       6. CZTERY MODUŁY (KWADRATY)
        ========================================= */
     .modules-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-top: 8px;
+      grid-template-columns: repeat(2, 1fr); /* ZMIANA: 2 kolumny, idealny układ 2x2 */
+      gap: 12px;
+      margin-top: 16px;
     }
 
     .module-card {
@@ -426,7 +420,7 @@
     }
 
     /* =========================================
-       8. DOLNY PASEK NAWIGACJI (BOTTOM BAR)
+       7. DOLNY PASEK NAWIGACJI (BOTTOM BAR)
        ========================================= */
     .bottom-nav {
       position: fixed;
@@ -467,8 +461,15 @@
       font-size: 0.65rem;
       letter-spacing: 6px;
       color: var(--text-muted);
-      padding: 24px 0 100px 0; /* Margines na dole żeby pasek nie zasłaniał */
+      padding: 24px 0 100px 0;
       font-weight: 800;
+    }
+
+    /* =========================================
+       8. SYSTEM ZAKŁADEK (PELERYNA NIEWIDKA)
+       ========================================= */
+    .hidden-view {
+      display: none !important;
     }
   </style>
 </head>
@@ -476,7 +477,7 @@
 
   <div class="app-container">
     
-    <!-- 1. GÓRNY PASEK SYSTEMOWY -->
+    <!-- GÓRNY PASEK -->
     <header class="top-bar">
       <div class="brand-group">
         <div class="brand-badge">
@@ -485,7 +486,6 @@
           <span class="t-addicted">ADDICTED</span>
         </div>
         <div class="brand-details">
-          
           <span class="brand-sub">Polska społeczność fanów muzyki trance</span>
         </div>
       </div>
@@ -496,7 +496,7 @@
       </div>
     </header>
 
-    <!-- 2. SZKLANA WIZYTÓWKA SPOŁECZNOŚCI (HERO) -->
+    <!-- SZKLANA WIZYTÓWKA -->
     <section class="glass-card">
       <div class="card-label">TMA • 144K FOLLOWERS</div>
       <h1 class="hero-title">TRANCE IS FOR THE DREAMERS</h1>
@@ -516,92 +516,113 @@
     </section>
 
     <!-- =========================================
-         STREFA: EVENT RADAR 
+         KARTON 1: EVENT RADAR (Widoczny na starcie)
          ========================================= -->
-    <div class="section-title">
-      <span>🗓️</span> EVENT RADAR
-    </div>
-
-    <!-- EVENT 1: RESISTANCE POLAND -->
-    <section class="glass-card">
-      <div class="radar-header">
-        <div class="radar-title"><span>🔥</span> RESISTANCE POLAND</div>
-        <div class="radar-subtitle">Ergo Arena<br>Gdańsk / Sopot</div>
+    <div id="view-events">
+      <div class="section-title">
+        <span>🗓️</span> EVENT RADAR
       </div>
-      <div class="radar-content">
-        <img src="images.jpeg" class="radar-poster" alt="Resistance">
-        <div class="radar-info">
-          <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
-          <div id="timer-resistance" class="radar-timer">48 : 12</div>
-          <div class="radar-labels">
-           <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
-          </div>
-          <div class="radar-lineup">
-            <div class="lineup-title">STATUS:</div>
-            <div class="lineup-text">Bilety w sprzedaży!</div>
-          </div>
+
+      <section class="glass-card">
+        <div class="radar-header">
+          <div class="radar-title"><span>🔥</span> RESISTANCE POLAND</div>
+          <div class="radar-subtitle">Ergo Arena<br>Gdańsk / Sopot</div>
         </div>
-      </div>
-    </section>
-
-    <!-- EVENT 2: TRANSMISSION FESTIVAL -->
-    <section class="glass-card">
-      <div class="radar-header">
-        <div class="radar-title"><span>⚡</span> TRANSMISSION FESTIVAL</div>
-        <div class="radar-subtitle">Gelredome<br>Arnhem</div>
-      </div>
-      <div class="radar-content">
-        <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Transmission">
-        <div class="radar-info">
-          <div class="radar-date">28 LISTOPADA 2026</div>
-         <!-- Dodajemy id="timer-transmission" -->
-<div id="timer-transmission" class="radar-timer">96 : 39</div>
-          <div class="radar-labels">
-         <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
+        <div class="radar-content">
+          <img src="images.jpeg" class="radar-poster" alt="Resistance">
+          <div class="radar-info">
+            <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
+            <div id="timer-resistance" class="radar-timer">48 : 12</div>
+            <div class="radar-labels">
+             <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
+            </div>
+            <div class="radar-lineup">
+              <div class="lineup-title">STATUS:</div>
+              <div class="lineup-text">Bilety w sprzedaży!</div>
+            </div>
           </div>
-          <div class="radar-lineup">
-            <div class="lineup-title">LINE-UP:</div>
-            <div class="lineup-text">Paul van Dyk, Daxson, Markus Schulz</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         STREFA: AUDIO & MEDIA HUB 
-         ========================================= -->
-    <div class="section-title">
-      <span>▶️</span> AUDIO & MEDIA HUB
-    </div>
-
-    <div class="video-grid">
-      <!-- WIDEO 1: ARMIN VAN BUUREN -->
-      <section class="glass-card" style="padding: 12px;">
-        <div class="video-label" style="color: var(--tma-red);">🔴 WYWIAD: ARMIN VAN BUUREN</div>
-        <div class="video-wrapper">
-          <!-- Wstrzykujemy ID Waszego wywiadu z Arminem! -->
-          <iframe src="https://www.youtube.com/embed/GFpUF1ZF1dM" allowfullscreen></iframe>
-        </div>
-        <div class="video-desc">
-          Exclusive Interview: ARMIN VAN BUUREN on ASOT, Fans & What’s Next! Polska ekipa TMA w akcji.
         </div>
       </section>
 
-      <!-- WIDEO 2: RUBEN DE RONDE -->
-      <section class="glass-card" style="padding: 12px;">
-        <div class="video-label" style="color: var(--neon-blue);">🎵 WYWIAD: RUBEN DE RONDE</div>
-        <div class="video-wrapper">
-          <!-- Wstrzykujemy ID Waszego wywiadu z Rubenem! -->
-          <iframe src="https://www.youtube.com/embed/_qoILL9XIPE" allowfullscreen></iframe>
+      <section class="glass-card">
+        <div class="radar-header">
+          <div class="radar-title"><span>⚡</span> TRANSMISSION FESTIVAL</div>
+          <div class="radar-subtitle">Gelredome<br>Arnhem</div>
         </div>
-        <div class="video-desc">
-          25 Years of A State of Trance & New Music! Nasz wywiad z Rubenem de Ronde.
+        <div class="radar-content">
+          <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Transmission">
+          <div class="radar-info">
+            <div class="radar-date">28 LISTOPADA 2026</div>
+            <div id="timer-transmission" class="radar-timer">96 : 39</div>
+            <div class="radar-labels">
+             <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
+            </div>
+            <div class="radar-lineup">
+              <div class="lineup-title">LINE-UP:</div>
+              <div class="lineup-text">Paul van Dyk, Daxson, Markus Schulz</div>
+            </div>
+          </div>
         </div>
       </section>
-    
+    </div> <!-- KONIEC KARTONU EVENTY -->
 
     <!-- =========================================
-         STREFA: 4 KWADRATOWE MODUŁY
+         KARTON 2: MUZYKA (Domyślnie ukryty)
+         ========================================= -->
+    <div id="view-music" class="hidden-view">
+      <div class="section-title">
+        <span>▶️</span> AUDIO & MEDIA HUB
+      </div>
+
+      <div class="video-grid">
+        <section class="glass-card" style="padding: 12px;">
+          <div class="video-label" style="color: var(--tma-red);">🔴 WYWIAD: ARMIN VAN BUUREN</div>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/GFpUF1ZF1dM" allowfullscreen></iframe>
+          </div>
+          <div class="video-desc">
+            Exclusive Interview: ARMIN VAN BUUREN on ASOT, Fans & What’s Next! Polska ekipa TMA w akcji.
+          </div>
+        </section>
+
+        <section class="glass-card" style="padding: 12px;">
+          <div class="video-label" style="color: var(--neon-blue);">🎵 WYWIAD: RUBEN DE RONDE</div>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/_qoILL9XIPE" allowfullscreen></iframe>
+          </div>
+          <div class="video-desc">
+            25 Years of A State of Trance & New Music! Nasz wywiad z Rubenem de Ronde.
+          </div>
+        </section>
+      </div>
+    </div> <!-- KONIEC KARTONU MUZYKA -->
+
+    <!-- =========================================
+         KARTON 3: WYWIADY (Domyślnie ukryty)
+         ========================================= -->
+    <div id="view-interviews" class="hidden-view">
+      <div class="section-title">
+        <span>🎙️</span> WYWIADY Z ARTYSTAMI
+      </div>
+
+      <div class="video-grid">
+        <section class="glass-card" style="padding: 12px;">
+          <div class="video-label" style="color: #a855f7;">🟣 RELACJA BACKSTAGE TMA</div>
+          <div class="video-wrapper">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18eJ4453QJ%2F&show_text=false" 
+                    style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
+          </div>
+          <div class="video-desc">
+            Rozmowa Kasi zza kulis. Emocje, pasja i muzyka trance oczami naszej ekipy.
+          </div>
+        </section>
+      </div>
+    </div> <!-- KONIEC KARTONU WYWIADY -->
+
+    <!-- =========================================
+         STREFA MODUŁÓW I STOPKI (Zawsze widoczne)
          ========================================= -->
     <div class="modules-grid">
       <div class="module-card m-community">
@@ -626,78 +647,93 @@
       </div>
     </div>
 
-    <!-- =========================================
-         STOPKA
-         ========================================= -->
     <div class="footer-brand">
       TRANCE MUSIC ADDICTED
     </div>
 
-  </div> <!-- ZAMKNIĘCIE .app-container -->
+  </div> <!-- ZAMKNIĘCIE APLIKACJI -->
 
   <!-- =========================================
-       DOLNE MENU PRZYKLEJONE DO EKRANU
+       PILOT (DOLNE MENU) - Dodane ID i onclick!
        ========================================= -->
   <nav class="bottom-nav">
-    <a href="#" class="nav-item active">
+    <a href="#" class="nav-item">
       <span class="nav-icon">👥</span>
       <span>Community</span>
     </a>
-    <a href="#" class="nav-item">
+    <a href="#" class="nav-item" id="btn-interviews" onclick="switchView('interviews')">
       <span class="nav-icon">🎙️</span>
       <span>Wywiady</span>
     </a>
-    <a href="#" class="nav-item">
+    <a href="#" class="nav-item" id="btn-music" onclick="switchView('music')">
       <span class="nav-icon">🎵</span>
       <span>Muzyka</span>
     </a>
-    <a href="#" class="nav-item">
+    <a href="#" class="nav-item active" id="btn-events" onclick="switchView('events')">
       <span class="nav-icon">🗓️</span>
       <span>Wydarzenia</span>
     </a>
   </nav>
 
+  <!-- =========================================
+       SILNIK JAVASCRIPT
+       ========================================= -->
   <script>
+    // 1. ZEGARY ODLICZAJĄCE
     const resistanceDate = new Date("Oct 10, 2026 20:00:00").getTime();
     const transmissionDate = new Date("Nov 28, 2026 20:00:00").getTime();
 
     function startTimers() {
       const now = new Date().getTime(); 
 
-      // --- OBLICZENIA DLA RESISTANCE ---
       const diffRes = resistanceDate - now;
-      
       const daysRes = Math.floor(diffRes / (1000 * 60 * 60 * 24));
       const hoursRes = Math.floor((diffRes % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesRes = Math.floor((diffRes % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsRes = Math.floor((diffRes % (1000 * 60)) / 1000); // <--- NOWE: SEKUNDY!
+      const secondsRes = Math.floor((diffRes % (1000 * 60)) / 1000); 
       
-      // Dodane sekundy na końcu:
       document.getElementById("timer-resistance").innerHTML = 
-        daysRes + " : " + 
-        (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + 
-        (minutesRes < 10 ? "0" + minutesRes : minutesRes) + " : " + 
-        (secondsRes < 10 ? "0" + secondsRes : secondsRes);
+        daysRes + " : " + (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + 
+        (minutesRes < 10 ? "0" + minutesRes : minutesRes) + " : " + (secondsRes < 10 ? "0" + secondsRes : secondsRes);
 
-
-      // --- OBLICZENIA DLA TRANSMISSION ---
       const diffTrans = transmissionDate - now;
-      
       const daysTrans = Math.floor(diffTrans / (1000 * 60 * 60 * 24));
       const hoursTrans = Math.floor((diffTrans % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesTrans = Math.floor((diffTrans % (1000 * 60 * 60)) / (1000 * 60));
-      const secondsTrans = Math.floor((diffTrans % (1000 * 60)) / 1000); // <--- NOWE: SEKUNDY!
+      const secondsTrans = Math.floor((diffTrans % (1000 * 60)) / 1000); 
 
-      // Dodane sekundy na końcu:
       document.getElementById("timer-transmission").innerHTML = 
-        daysTrans + " : " + 
-        (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + 
-        (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans) + " : " + 
-        (secondsTrans < 10 ? "0" + secondsTrans : secondsTrans);
+        daysTrans + " : " + (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + 
+        (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans) + " : " + (secondsTrans < 10 ? "0" + secondsTrans : secondsTrans);
     }
 
     startTimers();
     setInterval(startTimers, 1000);
+
+    // 2. MÓZG NAWIGACJI (PRZEŁĄCZANIE KANAŁÓW)
+    function switchView(target) {
+      // Narzucamy pelerynę niewidkę na wszystkie 3 kartony
+      document.getElementById('view-events').classList.add('hidden-view');
+      document.getElementById('view-music').classList.add('hidden-view');
+      document.getElementById('view-interviews').classList.add('hidden-view');
+
+      // Gasimy podświetlenie (niebieski kolor) ze wszystkich przycisków
+      document.getElementById('btn-events').classList.remove('active');
+      document.getElementById('btn-music').classList.remove('active');
+      document.getElementById('btn-interviews').classList.remove('active');
+
+      // Zdejmujemy pelerynę i odpalamy podświetlenie TYLKO dla klikniętego kanału
+      if (target === 'events') {
+        document.getElementById('view-events').classList.remove('hidden-view');
+        document.getElementById('btn-events').classList.add('active');
+      } else if (target === 'music') {
+        document.getElementById('view-music').classList.remove('hidden-view');
+        document.getElementById('btn-music').classList.add('active');
+      } else if (target === 'interviews') {
+        document.getElementById('view-interviews').classList.remove('hidden-view');
+        document.getElementById('btn-interviews').classList.add('active');
+      }
+    }
   </script>
 
 </body>
