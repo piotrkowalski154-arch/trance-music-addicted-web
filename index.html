@@ -302,7 +302,7 @@
       font-size: 0.65rem;
       color: var(--text-muted);
       display: flex;
-      gap: 15px; /* Zmniejszone dla sekund */
+      gap: 15px; 
       margin-bottom: 12px;
       padding-left: 5px;
       letter-spacing: 2px;
@@ -333,7 +333,7 @@
        ========================================= */
     .video-grid {
       display: grid;
-      grid-template-columns: 1fr; /* ZMIANA: Jedna kolumna dla idealnego widoku mobile */
+      grid-template-columns: 1fr; /* IDEALNE NA SMARTFONA */
       gap: 16px;
     }
 
@@ -369,11 +369,11 @@
     }
 
     /* =========================================
-       6. CZTERY MODUŁY (KWADRATY)
+       6. CZTERY MODUŁY (KWADRATY 2x2)
        ========================================= */
     .modules-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* ZMIANA: 2 kolumny, idealny układ 2x2 */
+      grid-template-columns: repeat(2, 1fr); 
       gap: 12px;
       margin-top: 16px;
     }
@@ -477,7 +477,9 @@
 
   <div class="app-container">
     
-    <!-- GÓRNY PASEK -->
+    <!-- =========================================
+         GÓRNY PASEK I WIZYTÓWKA
+         ========================================= -->
     <header class="top-bar">
       <div class="brand-group">
         <div class="brand-badge">
@@ -496,7 +498,6 @@
       </div>
     </header>
 
-    <!-- SZKLANA WIZYTÓWKA -->
     <section class="glass-card">
       <div class="card-label">TMA • 144K FOLLOWERS</div>
       <h1 class="hero-title">TRANCE IS FOR THE DREAMERS</h1>
@@ -575,6 +576,26 @@
       </div>
 
       <div class="video-grid">
+        <section class="glass-card" style="padding: 24px; text-align: center;">
+          <div class="video-label" style="color: var(--neon-blue); font-size: 0.9rem;">🎵 SETY MUZYCZNE WKRÓTCE</div>
+          <div class="video-desc">
+            Pracujemy nad bazą najlepszych setów i klasyków Trance. Stay tuned!
+          </div>
+        </section>
+      </div>
+    </div> <!-- KONIEC KARTONU MUZYKA -->
+
+    <!-- =========================================
+         KARTON 3: WYWIADY I RELACJE (Domyślnie ukryty)
+         ========================================= -->
+    <div id="view-interviews" class="hidden-view">
+      <div class="section-title">
+        <span>🎙️</span> WYWIADY I RELACJE TMA
+      </div>
+
+      <div class="video-grid">
+
+        <!-- WYWIAD 1: ARMIN VAN BUUREN (YT) -->
         <section class="glass-card" style="padding: 12px;">
           <div class="video-label" style="color: var(--tma-red);">🔴 WYWIAD: ARMIN VAN BUUREN</div>
           <div class="video-wrapper">
@@ -585,6 +606,7 @@
           </div>
         </section>
 
+        <!-- WYWIAD 2: RUBEN DE RONDE (YT) -->
         <section class="glass-card" style="padding: 12px;">
           <div class="video-label" style="color: var(--neon-blue);">🎵 WYWIAD: RUBEN DE RONDE</div>
           <div class="video-wrapper">
@@ -594,30 +616,49 @@
             25 Years of A State of Trance & New Music! Nasz wywiad z Rubenem de Ronde.
           </div>
         </section>
-      </div>
-    </div> <!-- KONIEC KARTONU MUZYKA -->
 
-    <!-- =========================================
-         KARTON 3: WYWIADY (Domyślnie ukryty)
-         ========================================= -->
-    <div id="view-interviews" class="hidden-view">
-      <div class="section-title">
-        <span>🎙️</span> WYWIADY Z ARTYSTAMI
-      </div>
-
-      <div class="video-grid">
+        <!-- RELACJA 1: FACEBOOK POST -->
         <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: #a855f7;">🟣 RELACJA BACKSTAGE TMA</div>
-          <div class="video-wrapper">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18eJ4453QJ%2F&show_text=false" 
-                    style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          <div class="video-label" style="color: #38bdf8;">🔵 RELACJA FACEBOOK</div>
+          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid0jAQW5KTyuWVJbjPPyeRHVsQwg6w7ZT6dAzaC4sqLDf1JShHSfFSbmgxMxYMvHLaol&show_text=true&width=500" 
+                    width="100%" height="673" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
+                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
             </iframe>
           </div>
           <div class="video-desc">
-            Rozmowa Kasi zza kulis. Emocje, pasja i muzyka trance oczami naszej ekipy.
+            Sprawdź najnowszy wpis bezpośrednio z naszego profilu!
           </div>
         </section>
+
+        <!-- RELACJA 2: FACEBOOK POST -->
+        <section class="glass-card" style="padding: 12px;">
+          <div class="video-label" style="color: #38bdf8;">🔵 AKTUALIZACJA FACEBOOK</div>
+          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
+            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid02bYRxxfWoXMVac3vwuqx15NsgDKrgZMApD4wDpFdPfvQEP9ZLsSGjJCNu2y54pUTWl&show_text=true&width=500" 
+                    width="100%" height="372" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
+                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
+          </div>
+          <div class="video-desc">
+            Kolejna aktualizacja od naszej ekipy TMA.
+          </div>
+        </section>
+
+        <!-- RELACJA 3: FACEBOOK REELS (PIONOWE) -->
+        <section class="glass-card" style="padding: 12px;">
+          <div class="video-label" style="color: #a855f7;">🟣 TMA REELS (WIDEO PIONOWE)</div>
+          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #000000;">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F19aS1k6cMj%2F&show_text=false" 
+                    width="100%" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
+                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
+          </div>
+          <div class="video-desc">
+            Szybka rolka zza kulis. Oglądaj nasze wideo!
+          </div>
+        </section>
+
       </div>
     </div> <!-- KONIEC KARTONU WYWIADY -->
 
@@ -654,7 +695,7 @@
   </div> <!-- ZAMKNIĘCIE APLIKACJI -->
 
   <!-- =========================================
-       PILOT (DOLNE MENU) - Dodane ID i onclick!
+       PILOT (DOLNE MENU) - System Przełączania SPA
        ========================================= -->
   <nav class="bottom-nav">
     <a href="#" class="nav-item">
@@ -717,12 +758,12 @@
       document.getElementById('view-music').classList.add('hidden-view');
       document.getElementById('view-interviews').classList.add('hidden-view');
 
-      // Gasimy podświetlenie (niebieski kolor) ze wszystkich przycisków
+      // Gasimy podświetlenie ze wszystkich przycisków
       document.getElementById('btn-events').classList.remove('active');
       document.getElementById('btn-music').classList.remove('active');
       document.getElementById('btn-interviews').classList.remove('active');
 
-      // Zdejmujemy pelerynę i odpalamy podświetlenie TYLKO dla klikniętego kanału
+      // Zdejmujemy pelerynę TYLKO z klikniętego kanału
       if (target === 'events') {
         document.getElementById('view-events').classList.remove('hidden-view');
         document.getElementById('btn-events').classList.add('active');
