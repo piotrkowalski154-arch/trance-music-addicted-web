@@ -826,6 +826,36 @@ function startTimers() {
         document.getElementById('btn-interviews').classList.add('active');
       }
     }
+    // =========================================
+    // 3. MÓZG ROTACJI PLAKATÓW (CROSSFADE)
+    // =========================================
+    
+    // Lista obrazków, które mają się zmieniać (wpisz tu swoje nazwy plików)
+    const resistancePosters = [
+      "images.jpeg",               // 1. Twój główny plakat (Resistance)
+      "tmnl26_visual_djs_fb_cover-1536x674.jpg"  // 2. Tymczasowo dałem plakat z Transmission jako test
+      // Możesz tu po przecinku dodawać kolejne zdjęcia!
+    ];
+    
+    let currentPosterIndex = 0;
+    const posterElement = document.getElementById("poster-resistance");
+
+    function rotatePoster() {
+      if (!posterElement) return; // Zabezpieczenie, gdyby nie było plakatu na stronie
+      
+      // KROK 1: Ściemnij plakat do 0 (znika płynnie dzięki CSS)
+      posterElement.style.opacity = 0;
+      
+      // KROK 2: Poczekaj pół sekundy (500ms), podmień obrazek w ciemności i rozjaśnij!
+      setTimeout(() => {
+        currentPosterIndex = (currentPosterIndex + 1) % resistancePosters.length;
+        posterElement.src = resistancePosters[currentPosterIndex];
+        posterElement.style.opacity = 1;
+      }, 500); 
+    }
+
+    // Odpalaj tę procedurę co równe 4 sekundy (4000 milisekund)
+    setInterval(rotatePoster, 4000);
   </script>
 
 </body>
