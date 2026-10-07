@@ -548,50 +548,67 @@
 <!-- =========================================
          SZKLANA KARTA: TMA LIVE RADIO (AH.fm STREAM)
          ========================================= -->
-    <section class="glass-card" style="padding: 18px; margin-top: 16px;">
-      <div class="video-label" style="color: var(--neon-blue); display: flex; align-items: center; justify-content: space-between;">
-        <span style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 1.1rem;">📻</span> TMA LIVE STREAM
+ <!-- =========================================
+         SZKLANA KARTA: TMA MULTI-RADIO (NEONOWA RAMKA)
+         ========================================= -->
+    <section class="glass-card" style="padding: 20px; margin-top: 16px; border-radius: 20px; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 27, 75, 0.85)); border: 2px solid transparent; background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), linear-gradient(135deg, #00d4ff, #a855f7, #ffd700); background-origin: border-box; background-clip: padding-box, border-box; box-shadow: 0 8px 32px rgba(0, 212, 255, 0.25), inset 0 0 15px rgba(168, 85, 247, 0.15);">
+      
+      <!-- NAGŁÓWEK -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+        <span style="display: flex; align-items: center; gap: 8px; font-weight: 900; color: #ffd700; font-size: 1rem; text-shadow: 0 0 10px rgba(255,215,0,0.4);">
+          <span style="font-size: 1.2rem;">📻</span> TMA LIVE STATIONS
         </span>
-        <span style="font-size: 0.65rem; color: #ff334b; font-weight: 800; animation: pulse 1.5s infinite;">● LIVE</span>
+        <span style="font-size: 0.65rem; color: #ff334b; font-weight: 900; background: rgba(255, 51, 75, 0.15); padding: 4px 8px; border-radius: 20px; border: 1px solid rgba(255, 51, 75, 0.4); animation: pulse 1.5s infinite;">● 24/7 LIVE</span>
       </div>
       
-      <h3 style="font-size: 1.1rem; font-weight: 900; margin: 12px 0 4px 0; color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.9), 0 0 10px rgba(0,212,255,0.4); letter-spacing: 0.5px;">
-        Trance Music Addicted Radio
+      <h3 style="font-size: 1.15rem; font-weight: 900; margin: 0 0 6px 0; color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.9), 0 0 12px rgba(0,212,255,0.5); letter-spacing: 0.5px;">
+        Wybierz swój Trance'owy Kanał
       </h3>
       
-      <p style="font-size: 0.85rem; color: #f1f5f9; margin-bottom: 16px; line-height: 1.5; font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.9);">
-        Najlepsze sety trance w 24/7 na żywo. Odpal stream i poczuj ten klubowy klimat w swojej kieszeni!
+      <p style="font-size: 0.8rem; color: #cbd5e1; margin-bottom: 14px; line-height: 1.5; font-weight: 600;">
+        Najlepsze stacje z Amsterdamu i świata w Twojej kieszeni. Przełączaj i słuchaj bez limitów!
       </p>
 
-      <!-- HTML5 Audio Element z podpiętym streamem Afterhours.fm -->
-      <audio id="tma-radio-stream" preload="none">
-       <source src="https://tb-base.cdn.united-streaming.de/tb-live.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie wspiera odtwarzacza audio.
-      </audio>
+      <!-- ELEMENT AUDIO Z UKRYTYM STRUMIENIAMI -->
+      <audio id="tma-radio-stream" preload="none"></audio>
 
-      <!-- KLOCEK STEROWANIA RADIEM -->
-      <div style="display: flex; align-items: center; gap: 14px; background: rgba(0, 0, 0, 0.5); padding: 14px; border-radius: 12px; border: 1px solid rgba(0, 212, 255, 0.3); box-shadow: inset 0 0 15px rgba(0,212,255,0.1);">
+      <!-- WYBÓR STACJI (PRZYCISKI KANAŁÓW) -->
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px;">
+        <button onclick="changeStation('https://strm112.1.fm/atr_mobile_mp3', 'Amsterdam Trance Radio', this)" class="station-btn" style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.4); color: #bae6fd; padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 800; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;">
+          <span>🎧 1. Amsterdam Trance Radio</span>
+          <span style="font-size: 0.7rem; opacity: 0.7;">Wybierz</span>
+        </button>
+
+        <button onclick="changeStation('https://cast.streams.ovh:8008/stream', 'Trance Athena', this)" class="station-btn" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.4); color: #e9d5ff; padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 800; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;">
+          <span>⚡ 2. Trance Athena</span>
+          <span style="font-size: 0.7rem; opacity: 0.7;">Wybierz</span>
+        </button>
+
+        <button onclick="changeStation('https://mscp3.live-streams.nl:8022', 'Trance 21 Amsterdam', this)" class="station-btn" style="background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.4); color: #fef08a; padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 800; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.2s;">
+          <span>🔥 3. Trance 21 Amsterdam</span>
+          <span style="font-size: 0.7rem; opacity: 0.7;">Wybierz</span>
+        </button>
+      </div>
+
+      <!-- KLOCEK GŁÓWNEGO STEROWANIA (PLAY / PAUSE) -->
+      <div style="display: flex; align-items: center; gap: 14px; background: rgba(0, 0, 0, 0.6); padding: 14px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: inset 0 0 15px rgba(0,0,0,0.8);">
         
         <!-- PRZYCISK PLAY/PAUSE -->
-        <button onclick="toggleRadio()" id="radio-play-btn" style="background: var(--neon-blue); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; box-shadow: 0 0 15px rgba(0,212,255,0.6); color: #05070e; font-weight: 900; flex-shrink: 0; transition: transform 0.2s;">
+        <button onclick="toggleRadio()" id="radio-play-btn" style="background: linear-gradient(135deg, #00d4ff, #a855f7); border: none; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; box-shadow: 0 0 15px rgba(168,85,247,0.6); color: #ffffff; font-weight: 900; flex-shrink: 0; transition: transform 0.2s;">
           ▶
         </button>
         
-        <!-- STATUS I OPIS -->
-        <div style="flex: 1;">
+        <!-- STATUS I NAZWA AKTYWNEJ STACJI -->
+        <div style="flex: 1; overflow: hidden;">
           <div id="radio-status" style="font-size: 0.85rem; font-weight: 900; color: #ffffff; letter-spacing: 0.5px; text-shadow: 0 0 8px rgba(255,255,255,0.4);">
-            STATUS: ZATRZYMANY
+            STATUS: WYBIERZ STACJĘ
           </div>
-          <div style="font-size: 0.7rem; color: #94a3b8; font-weight: 700; margin-top: 2px;">
-            AH.fm Global Stream • 128 kbps HQ
+          <div id="radio-current-name" style="font-size: 0.7rem; color: #cbd5e1; font-weight: 700; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            Brak aktywnego strumienia
           </div>
         </div>
       </div>
     </section>
-
-
-
 
 
     
@@ -956,7 +973,59 @@
 
     initEvents();
     setInterval(updateClock, 1000); // Zegar tyka co sekundę
-    setInterval(rotateFullEvent, 5000); // Cały event zmienia się co 5 sekund
+    setInterval(rotateFullEvent, 5000); 
+
+    let currentStreamUrl = "";
+
+    function changeStation(url, name, btnElement) {
+      const audio = document.getElementById('tma-radio-stream');
+      const status = document.getElementById('radio-status');
+      const nameDisplay = document.getElementById('radio-current-name');
+      const playBtn = document.getElementById('radio-play-btn');
+
+      // Podświetlenie aktywnego przycisku
+      document.querySelectorAll('.station-btn').forEach(b => b.style.borderColor = 'rgba(255,255,255,0.2)');
+      btnElement.style.borderColor = '#ffd700';
+
+      currentStreamUrl = url;
+      audio.src = url;
+      audio.load();
+      audio.play().then(() => {
+        playBtn.innerHTML = '⏸';
+        status.innerHTML = 'STATUS: GRA NA ŻYWO 🎧';
+        status.style.color = '#00d4ff';
+        nameDisplay.innerHTML = `Aktywna: ${name}`;
+      }).catch(e => {
+        alert('Braciszku, błąd odtwarzania strumienia. Sprawdź połączenie!');
+      });
+    }
+
+    function toggleRadio() {
+      const audio = document.getElementById('tma-radio-stream');
+      const playBtn = document.getElementById('radio-play-btn');
+      const status = document.getElementById('radio-status');
+      const nameDisplay = document.getElementById('radio-current-name');
+
+      if (!currentStreamUrl) {
+        alert('Najpierw wybierz stację z listy powyżej, braciszku!');
+        return;
+      }
+
+      if (audio.paused) {
+        audio.play().then(() => {
+          playBtn.innerHTML = '⏸';
+          status.innerHTML = 'STATUS: GRA NA ŻYWO 🎧';
+          status.style.color = '#00d4ff';
+        });
+      } else {
+        audio.pause();
+        playBtn.innerHTML = '▶';
+        status.innerHTML = 'STATUS: ZATRZYMANY';
+        status.style.color = '#ffffff';
+      }
+    }
+    
+
   </script>
 
 </body>
