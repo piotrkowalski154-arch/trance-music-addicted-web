@@ -106,13 +106,6 @@
       flex-direction: column;
     }
 
-    .brand-version {
-      font-size: 0.9rem;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      color: #ffffff;
-    }
-
     .brand-sub {
       font-size: 0.72rem;
       color: var(--text-muted);
@@ -127,7 +120,7 @@
     }
 
     /* =========================================
-       3. SZKLANE KARTY
+       3. SZKLANE KARTY I PRZYCISKI
        ========================================= */
     .glass-card {
       background: var(--glass-bg);
@@ -177,25 +170,28 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 10px 6px;
+      padding: 10px 4px;
       border-radius: 24px;
-      font-size: 0.75rem;
-      font-weight: 700;
+      font-size: 0.65rem;
+      font-weight: 800;
       text-decoration: none;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
       flex-shrink: 0;
+      text-align: center;
     }
 
-    .btn-pill.primary {
-      border-color: rgba(0, 212, 255, 0.6);
-      background: rgba(0, 212, 255, 0.15);
+    /* STYLE Z PROJEKTU: Puste ramki dla socjali, czerwone dla sklepu */
+    .btn-pill.outline {
+      background: transparent;
+      border: 1px solid var(--neon-blue);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
     }
 
-    .btn-pill.shop {
-      border-color: rgba(255, 51, 75, 0.6);
-      background: rgba(255, 51, 75, 0.2);
+    .btn-pill.solid-red {
+      background: var(--tma-red);
+      border: 1px solid #ff002b;
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 51, 75, 0.4);
     }
 
     .btn-vip {
@@ -273,8 +269,6 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
       aspect-ratio: 2 / 3;
       object-fit: cover; 
-      /* NOWE: Miękkie przejście dla zmieniających się plakatów */
-      transition: opacity 0.5s ease-in-out; 
     }
 
     .radar-info {
@@ -287,25 +281,24 @@
       margin-bottom: 4px;
       font-weight: 800;
       letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
     }
 
-  .radar-timer {
-      font-size: 1.8rem; /* Zmniejszono z 2.4rem */
+    .radar-timer {
+      font-size: 1.8rem; /* Idealnie na szerokość ekranu */
       font-weight: 900;
-      letter-spacing: 2px; /* Zmniejszono z 4px */
+      letter-spacing: 2px; 
       color: #ffffff;
-      text-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 20px rgba(0, 212, 255, 0.2);
+      text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
       margin-bottom: 4px;
       line-height: 1;
-      white-space: nowrap; /* TARCZA OCHRONNA: Zakazuje przeglądarce łamania na 2 linijki! */
+      white-space: nowrap; /* Zabezpieczenie przed przejściem do nowej linii */
     }
 
     .radar-labels {
       font-size: 0.65rem;
       color: var(--text-muted);
       display: flex;
-      gap: 20px; /* Zwiększony odstęp, żeby napisy siadły idealnie pod cyframi */
+      gap: 20px; 
       margin-bottom: 12px;
       padding-left: 5px;
       letter-spacing: 2px;
@@ -332,43 +325,60 @@
     }
 
     /* =========================================
-       5. AUDIO & MEDIA HUB (WIDEO)
+       5. DWIE KOLUMNY WIDEO (Projekt)
        ========================================= */
-    .video-grid {
+    .video-grid-2col {
       display: grid;
-      grid-template-columns: 1fr; /* IDEALNE NA SMARTFONA */
-      gap: 16px;
+      grid-template-columns: repeat(2, 1fr); /* 2 równe kolumny */
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
-    .video-wrapper {
+    .media-box {
+      background: rgba(12, 18, 32, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-box-header {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .media-box-img {
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      background: #1e293b;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    .media-box-ratio {
+      font-size: 0.55rem;
+      color: #ffffff;
+      background: rgba(0,0,0,0.7);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: bold;
     }
 
-    .video-label {
-      font-size: 0.75rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .video-desc {
-      font-size: 0.7rem;
-      color: #e2e8f0;
-      margin-top: 12px;
-      line-height: 1.45;
+    .media-box-desc {
+      font-size: 0.55rem;
+      color: #cbd5e1;
+      line-height: 1.4;
     }
 
     /* =========================================
@@ -383,24 +393,22 @@
 
     .module-card {
       background: rgba(12, 18, 32, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
-      padding: 16px 4px;
+      padding: 16px 8px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      position: relative; /* Wymagane dla małej strzałki */
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s ease;
     }
 
-    .module-card.m-community { border-color: rgba(0, 212, 255, 0.4); }
-    .module-card.m-interviews { border-color: rgba(168, 85, 247, 0.4); }
-    .module-card.m-music { border-color: rgba(255, 51, 75, 0.4); }
-    .module-card.m-events { border-color: rgba(56, 189, 248, 0.4); }
+    .module-card.m-community { border-color: rgba(0, 212, 255, 0.5); box-shadow: 0 0 10px rgba(0, 212, 255, 0.1); }
+    .module-card.m-interviews { border-color: rgba(168, 85, 247, 0.5); box-shadow: 0 0 10px rgba(168, 85, 247, 0.1); }
+    .module-card.m-music { border-color: rgba(255, 51, 75, 0.5); box-shadow: 0 0 10px rgba(255, 51, 75, 0.1); }
+    .module-card.m-events { border-color: rgba(56, 189, 248, 0.5); box-shadow: 0 0 10px rgba(56, 189, 248, 0.1); }
 
     .module-icon {
       font-size: 1.4rem;
@@ -420,6 +428,15 @@
       font-size: 0.45rem;
       color: var(--text-muted);
       line-height: 1.2;
+    }
+
+    .module-arrow {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: bold;
     }
 
     /* =========================================
@@ -481,7 +498,7 @@
   <div class="app-container">
     
     <!-- =========================================
-         GÓRNY PASEK I WIZYTÓWKA
+         GÓRNY PASEK
          ========================================= -->
     <header class="top-bar">
       <div class="brand-group">
@@ -510,29 +527,25 @@
         TMA • 144K FOLLOWERS
       </div>
       
-      <h1 class="hero-title" style="font-size: 1.3rem; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 15px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.3);">
+      <h1 class="hero-title" style="font-size: 1.2rem; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);">
         TRANCE IS FOR THE DREAMERS
       </h1>
       
-      <p class="hero-desc" style="font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: #f1f5f9; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
-        Od 16 lat z pasją promujemy muzykę trance, wydarzenia i artystów w Polsce i na świecie. Odkryj nasz świat!
+      <p class="hero-desc" style="font-size: 0.8rem; font-weight: 600; line-height: 1.6; color: #f1f5f9;">
+        Największa społeczność fanów, zbudowana na absolutnej pasji, relacjach i legendach muzyki elektronicznej. Odkryj nasz świat!
       </p>
 
       <div class="social-row" style="margin-bottom: 16px;">
-        <a href="https://www.facebook.com/share/1E23kZnrYD/" target="_blank" class="btn-pill primary" style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.5px;">
+        <a href="https://www.facebook.com/share/1E23kZnrYD/" target="_blank" class="btn-pill outline">
           <span>📘</span> Facebook
         </a>
-        <a href="https://www.instagram.com/trancemusicaddicted" target="_blank" class="btn-pill primary" style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.5px;">
+        <a href="https://www.instagram.com/trancemusicaddicted" target="_blank" class="btn-pill outline">
           <span>📷</span> Instagram
         </a>
-        <a href="https://trance-music-addicted.myspreadshop.pl/" target="_blank" class="btn-pill shop" style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.5px;">
-          <span>👕</span> Shop
+        <a href="https://trance-music-addicted.myspreadshop.pl/" target="_blank" class="btn-pill solid-red">
+          <span>👕</span> Spreadshop Merch
         </a>
       </div>
-      
-      <a href="https://www.facebook.com/MusicConnectsUs/subscribe" target="_blank" class="btn-vip" style="font-size: 0.9rem; font-weight: 900; letter-spacing: 1.5px; text-shadow: 0 2px 5px rgba(0,0,0,0.6); padding: 14px;">
-        ⭐ Zostań Subskrybentem VIP
-      </a>
     </section>
 
     <!-- =========================================
@@ -543,84 +556,43 @@
         <span>🗓️</span> EVENT RADAR
       </div>
 
-      <section class="glass-card">
+      <!-- JEDNA GŁÓWNA SZAFECZKA EVENTOWA (Dynamiczna) -->
+      <section class="glass-card" id="dynamic-event-card" style="transition: opacity 0.5s ease-in-out;">
         <div class="radar-header">
-          <div class="radar-title"><span>🔥</span> RESISTANCE POLAND</div>
-          <div class="radar-subtitle">Ergo Arena<br>Gdańsk / Sopot</div>
+          <div class="radar-title" id="dyn-title"><span>🔥</span> TRWA ŁADOWANIE...</div>
+          <div class="radar-subtitle" id="dyn-subtitle">Ładowanie<br>Danych</div>
         </div>
         <div class="radar-content">
-          <!-- DODANE ID DO PLAKATU -->
-          <img id="poster-resistance" src="images.jpeg" class="radar-poster" alt="Resistance">
+          <img id="dyn-poster" src="images.jpeg" class="radar-poster" alt="Plakat">
           <div class="radar-info">
-            <div class="radar-date">10 PAŹDZIERNIKA 2026</div>
-            <div id="timer-resistance" class="radar-timer">-- : -- : --</div>
+            <div class="radar-date" id="dyn-date">ŁADOWANIE DATY</div>
+            <!-- ZEGAR GŁÓWNY -->
+            <div id="dyn-timer" class="radar-timer">-- : -- : --</div>
             <div class="radar-labels">
-             <!-- USUNIĘTO SEKUNDY -->
              <span>DNI</span><span>GODZ.</span><span>MIN.</span>
             </div>
             <div class="radar-lineup">
-              <div class="lineup-title">STATUS:</div>
-              <div class="lineup-text">Bilety w sprzedaży!</div>
+              <div class="lineup-title" id="dyn-lineup-title">LINE-UP:</div>
+              <div class="lineup-text" id="dyn-lineup-text">Trwa wczytywanie...</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="glass-card">
-        <div class="radar-header">
-          <div class="radar-title"><span>⚡</span> TRANSMISSION FESTIVAL</div>
-          <div class="radar-subtitle">Gelredome<br>Arnhem</div>
-        </div>
-        <div class="radar-content">
-          <img src="tmnl26_visual_djs_fb_cover-1536x674.jpg" class="radar-poster" alt="Transmission">
-          <div class="radar-info">
-            <div class="radar-date">28 LISTOPADA 2026</div>
-            <div id="timer-transmission" class="radar-timer">96 : 39</div>
-            <div class="radar-labels">
-             <span>DNI</span><span>GODZ.</span><span>MIN.</span><span>SEK.</span>
-            </div>
-            <div class="radar-lineup">
-              <div class="lineup-title">LINE-UP:</div>
-              <div class="lineup-text">Paul van Dyk, Daxson, Markus Schulz</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: #38bdf8;">🔵 Trance Friends </div>
-          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid0jAQW5KTyuWVJbjPPyeRHVsQwg6w7ZT6dAzaC4sqLDf1JShHSfFSbmgxMxYMvHLaol&show_text=true&width=500" 
-                    width="100%" height="673" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
-                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
-          </div>
-          <div class="video-desc">
-            Sprawdź najnowszy wpis bezpośrednio z naszego profilu!
-          </div>
-        </section>
-
-
-      <!-- =========================================
-           WIDEO ZAPOWIEDŹ (EVENTY) - FACEBOOK REELS
-           ========================================= -->
+      <!-- ROLKA FACEBOOK -->
       <section class="glass-card" style="padding: 12px; margin-top: 16px;">
-        <div class="video-label" style="color: #38bdf8;">🔵 ZAPOWIEDŹ WIDEO (REELS)</div>
+        <div class="video-label" style="color: #a855f7;">🟣 TMA REELS (WIDEO PIONOWE)</div>
         <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #000000;">
-          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F18TzV8zF4T%2F&show_text=false" 
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F19aS1k6cMj%2F&show_text=false" 
                   width="100%" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
                   allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
         </div>
-        <div class="video-desc">
-          Sprawdź naszą najnowszą rolkę przygotowującą do nadchodzących wydarzeń! Ogień na parkiecie!
-        </div>
+        <div class="video-desc">Szybka rolka zza kulis. Oglądaj nasze wideo!</div>
       </section>
     </div> <!-- KONIEC KARTONU EVENTY -->
 
-    <!-- =========================================
-         KARTON 2: MUZYKA (Domyślnie ukryty)
-         ========================================= -->
+
     <!-- =========================================
          KARTON 2: MUZYKA (Domyślnie ukryty)
          ========================================= -->
@@ -629,27 +601,50 @@
         <span>▶️</span> AUDIO & MEDIA HUB
       </div>
 
-      <div class="video-grid">
-        
-        <!-- MATERIAŁ MUZYCZNY Z FACEBOOKA -->
-        <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: #38bdf8;">🔵 MUZYCZNA POLECAJKA TMA</div>
-          
-          <!-- Nasz elastyczny pojemnik, który chroni telefon przed "rozsadzeniem" ekranu -->
-          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid02bYRxxfWoXMVac3vwuqx15NsgDKrgZMApD4wDpFdPfvQEP9ZLsSGjJCNu2y54pUTWl&show_text=true&width=500" 
-                    width="100%" height="372" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
-                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
+      <!-- DWIE KOLUMNY WIDEO Z PROJEKTU -->
+      <div class="video-grid-2col">
+        <!-- Pudełko 1 -->
+        <div class="media-box">
+          <div class="media-box-header">
+            <span>ASOT Backstage - Live Sets</span>
+            <span style="color: rgba(255,255,255,0.4)">></span>
           </div>
-          <div class="video-desc">
-            Najświeższe muzyczne dźwięki polecane przez naszą ekipę na Facebooku!
+          <div class="media-box-img">
+            <span class="media-box-ratio">16:9</span>
           </div>
-        </section>
+          <div class="media-box-desc">
+            Wizyty w legendarnej siedzibie Armada Music. Relacje z backstage'u ASOT.
+          </div>
+        </div>
 
-      
+        <!-- Pudełko 2 -->
+        <div class="media-box">
+          <div class="media-box-header">
+            <span>Klasyk na Dziś</span>
+            <span style="color: rgba(255,255,255,0.4)">></span>
+          </div>
+          <div class="media-box-img">
+            <span class="media-box-ratio">16:9</span>
+          </div>
+          <div class="media-box-desc">
+            Legendarna relacja z klubu. Posłuchaj historii, które tworzą trance.
+          </div>
+        </div>
       </div>
+
+      <!-- MATERIAŁ MUZYCZNY Z FACEBOOKA -->
+      <section class="glass-card" style="padding: 12px;">
+        <div class="video-label" style="color: #38bdf8;">🔵 MUZYCZNA POLECAJKA TMA</div>
+        <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid02bYRxxfWoXMVac3vwuqx15NsgDKrgZMApD4wDpFdPfvQEP9ZLsSGjJCNu2y54pUTWl&show_text=true&width=500" 
+                  width="100%" height="372" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
+                  allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+      </section>
     </div> <!-- KONIEC KARTONU MUZYKA -->
+
+
     <!-- =========================================
          KARTON 3: WYWIADY I RELACJE (Domyślnie ukryty)
          ========================================= -->
@@ -658,60 +653,13 @@
         <span>🎙️</span> WYWIADY I RELACJE TMA
       </div>
 
-      <div class="video-grid">
-
-        <!-- WYWIAD 1: ARMIN VAN BUUREN (YT) -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 16px;">
         <section class="glass-card" style="padding: 12px;">
           <div class="video-label" style="color: var(--tma-red);">🔴 WYWIAD: ARMIN VAN BUUREN</div>
-          <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/GFpUF1ZF1dM" allowfullscreen></iframe>
-          </div>
-          <div class="video-desc">
-            Exclusive Interview: ARMIN VAN BUUREN on ASOT, Fans & What’s Next! Polska ekipa TMA w akcji.
+          <div style="width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px; overflow: hidden;">
+            <iframe src="https://www.youtube.com/embed/GFpUF1ZF1dM" allowfullscreen style="width: 100%; height: 100%; border: none;"></iframe>
           </div>
         </section>
-
-        <!-- WYWIAD 2: RUBEN DE RONDE (YT) -->
-        <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: var(--neon-blue);">🎵 WYWIAD: RUBEN DE RONDE</div>
-          <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/_qoILL9XIPE" allowfullscreen></iframe>
-          </div>
-          <div class="video-desc">
-            25 Years of A State of Trance & New Music! Nasz wywiad z Rubenem de Ronde.
-          </div>
-        </section>
-
-        <!-- RELACJA 1: FACEBOOK POST -->
-        
-        <!-- RELACJA 2: FACEBOOK POST -->
-        <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: #38bdf8;">🔵 AKTUALIZACJA FACEBOOK</div>
-          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #ffffff;">
-            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FMusicConnectsUs%2Fposts%2Fpfbid02bYRxxfWoXMVac3vwuqx15NsgDKrgZMApD4wDpFdPfvQEP9ZLsSGjJCNu2y54pUTWl&show_text=true&width=500" 
-                    width="100%" height="372" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
-                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
-          </div>
-          <div class="video-desc">
-            Kolejna aktualizacja od naszej ekipy TMA.
-          </div>
-        </section>
-
-        <!-- RELACJA 3: FACEBOOK REELS (PIONOWE) -->
-        <section class="glass-card" style="padding: 12px;">
-          <div class="video-label" style="color: #a855f7;">🟣 TMA REELS (WIDEO PIONOWE)</div>
-          <div style="width: 100%; border-radius: 8px; overflow: hidden; background: #000000;">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fr%2F19aS1k6cMj%2F&show_text=false" 
-                    width="100%" height="550" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
-                    allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
-          </div>
-          <div class="video-desc">
-            Szybka rolka zza kulis. Oglądaj nasze wideo!
-          </div>
-        </section>
-
       </div>
     </div> <!-- KONIEC KARTONU WYWIADY -->
 
@@ -723,21 +671,25 @@
         <div class="module-icon">👥</div>
         <div class="module-title">Community</div>
         <div class="module-desc">Ludzie. Pasja.</div>
+        <span class="module-arrow">></span>
       </div>
       <div class="module-card m-interviews">
         <div class="module-icon">🎙️</div>
         <div class="module-title">Wywiady</div>
         <div class="module-desc">Artyści. Historie.</div>
+        <span class="module-arrow">></span>
       </div>
       <div class="module-card m-music">
         <div class="module-icon">🎵</div>
         <div class="module-title">Muzyka</div>
         <div class="module-desc">Sety. Klasyki.</div>
+        <span class="module-arrow">></span>
       </div>
       <div class="module-card m-events">
         <div class="module-icon">🗓️</div>
         <div class="module-title">Eventy</div>
         <div class="module-desc">Kalendarz.</div>
+        <span class="module-arrow">></span>
       </div>
     </div>
 
@@ -748,7 +700,7 @@
   </div> <!-- ZAMKNIĘCIE APLIKACJI -->
 
   <!-- =========================================
-       PILOT (DOLNE MENU) - System Przełączania SPA
+       PILOT (DOLNE MENU)
        ========================================= -->
   <nav class="bottom-nav">
     <a href="#" class="nav-item">
@@ -773,48 +725,16 @@
        SILNIK JAVASCRIPT
        ========================================= -->
   <script>
-    // 1. ZEGARY ODLICZAJĄCE
-    const resistanceDate = new Date("Oct 10, 2026 20:00:00").getTime();
-    const transmissionDate = new Date("Nov 28, 2026 20:00:00").getTime();
-function startTimers() {
-      const now = new Date().getTime(); 
-
-      // RESISTANCE
-      const diffRes = resistanceDate - now;
-      const daysRes = Math.floor(diffRes / (1000 * 60 * 60 * 24));
-      const hoursRes = Math.floor((diffRes % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesRes = Math.floor((diffRes % (1000 * 60 * 60)) / (1000 * 60));
-      
-      document.getElementById("timer-resistance").innerHTML = 
-        daysRes + " : " + (hoursRes < 10 ? "0" + hoursRes : hoursRes) + " : " + 
-        (minutesRes < 10 ? "0" + minutesRes : minutesRes);
-
-      // TRANSMISSION
-      const diffTrans = transmissionDate - now;
-      const daysTrans = Math.floor(diffTrans / (1000 * 60 * 60 * 24));
-      const hoursTrans = Math.floor((diffTrans % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutesTrans = Math.floor((diffTrans % (1000 * 60 * 60)) / (1000 * 60));
-
-      document.getElementById("timer-transmission").innerHTML = 
-        daysTrans + " : " + (hoursTrans < 10 ? "0" + hoursTrans : hoursTrans) + " : " + 
-        (minutesTrans < 10 ? "0" + minutesTrans : minutesTrans);
-    }
-    startTimers();
-    setInterval(startTimers, 1000);
-
-    // 2. MÓZG NAWIGACJI (PRZEŁĄCZANIE KANAŁÓW)
+    // 1. MÓZG NAWIGACJI (PRZEŁĄCZANIE KANAŁÓW SPA)
     function switchView(target) {
-      // Narzucamy pelerynę niewidkę na wszystkie 3 kartony
       document.getElementById('view-events').classList.add('hidden-view');
       document.getElementById('view-music').classList.add('hidden-view');
       document.getElementById('view-interviews').classList.add('hidden-view');
 
-      // Gasimy podświetlenie ze wszystkich przycisków
       document.getElementById('btn-events').classList.remove('active');
       document.getElementById('btn-music').classList.remove('active');
       document.getElementById('btn-interviews').classList.remove('active');
 
-      // Zdejmujemy pelerynę TYLKO z klikniętego kanału
       if (target === 'events') {
         document.getElementById('view-events').classList.remove('hidden-view');
         document.getElementById('btn-events').classList.add('active');
@@ -826,36 +746,90 @@ function startTimers() {
         document.getElementById('btn-interviews').classList.add('active');
       }
     }
-    // =========================================
-    // 3. MÓZG ROTACJI PLAKATÓW (CROSSFADE)
-    // =========================================
-    
-    // Lista obrazków, które mają się zmieniać (wpisz tu swoje nazwy plików)
-    const resistancePosters = [
-      "images.jpeg",               // 1. Twój główny plakat (Resistance)
-      "tmnl26_visual_djs_fb_cover-1536x674.jpg"  // 2. Tymczasowo dałem plakat z Transmission jako test
-      // Możesz tu po przecinku dodawać kolejne zdjęcia!
-    ];
-    
-    let currentPosterIndex = 0;
-    const posterElement = document.getElementById("poster-resistance");
 
-    function rotatePoster() {
-      if (!posterElement) return; // Zabezpieczenie, gdyby nie było plakatu na stronie
+    // =========================================
+    // 2. SILNIK GŁÓWNY: ROTATOR EVENTÓW & ZEGARY
+    // =========================================
+
+    // BAZA DANYCH TWOICH EVENTÓW 
+    const eventsDB = [
+      {
+        title: "<span>🔥</span> RESISTANCE POLAND",
+        subtitle: "Ergo Arena<br>Gdańsk / Sopot",
+        dateText: "10 PAŹDZIERNIKA 2026",
+        posterUrl: "images.jpeg",
+        targetDate: new Date("Oct 10, 2026 20:00:00").getTime(),
+        lineupTitle: "STATUS:",
+        lineupText: "Bilety w sprzedaży!"
+      },
+      {
+        title: "<span>⚡</span> TRANSMISSION FESTIVAL",
+        subtitle: "Gelredome<br>Arnhem",
+        dateText: "28 LISTOPADA 2026",
+        posterUrl: "tmnl26_visual_djs_fb_cover-1536x674.jpg",
+        targetDate: new Date("Nov 28, 2026 20:00:00").getTime(),
+        lineupTitle: "LINE-UP:",
+        lineupText: "Paul van Dyk, Daxson, Markus Schulz"
+      }
+    ];
+
+    let currentEventIndex = 0;
+    
+    // FUNKCJA OBLICZAJĄCA ZEGAR
+    function updateClock() {
+      const now = new Date().getTime();
+      const currentTarget = eventsDB[currentEventIndex].targetDate;
+      const diff = currentTarget - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById("dyn-timer").innerHTML = 
+          days + " : " + (hours < 10 ? "0" + hours : hours) + " : " + (minutes < 10 ? "0" + minutes : minutes);
+      } else {
+        document.getElementById("dyn-timer").innerHTML = "00 : 00 : 00";
+      }
+    }
+
+    // FUNKCJA ZMIENIAJĄCA CAŁĄ KARTĘ 
+    function rotateFullEvent() {
+      const card = document.getElementById("dynamic-event-card");
       
-      // KROK 1: Ściemnij plakat do 0 (znika płynnie dzięki CSS)
-      posterElement.style.opacity = 0;
-      
-      // KROK 2: Poczekaj pół sekundy (500ms), podmień obrazek w ciemności i rozjaśnij!
+      // Krok 1: Ściemniamy całą szafeczkę
+      card.style.opacity = 0;
+
       setTimeout(() => {
-        currentPosterIndex = (currentPosterIndex + 1) % resistancePosters.length;
-        posterElement.src = resistancePosters[currentPosterIndex];
-        posterElement.style.opacity = 1;
+        // Zmieniamy na następny event z bazy
+        currentEventIndex = (currentEventIndex + 1) % eventsDB.length;
+        const ev = eventsDB[currentEventIndex];
+
+        // Podmieniamy wszystkie dane w HTML
+        document.getElementById("dyn-title").innerHTML = ev.title;
+        document.getElementById("dyn-subtitle").innerHTML = ev.subtitle;
+        document.getElementById("dyn-date").innerHTML = ev.dateText;
+        document.getElementById("dyn-poster").src = ev.posterUrl;
+        document.getElementById("dyn-lineup-title").innerHTML = ev.lineupTitle;
+        document.getElementById("dyn-lineup-text").innerHTML = ev.lineupText;
+        
+        // Odświeżamy zegar dla nowej daty
+        updateClock();
+
+        // Krok 2: Rozjaśniamy szafeczkę!
+        card.style.opacity = 1;
       }, 500); 
     }
 
-    // Odpalaj tę procedurę co równe 4 sekundy (4000 milisekund)
-    setInterval(rotatePoster, 4000);
+    // Odpalamy pierwszy event i ustawiamy pętle czasowe
+    function initEvents() {
+       currentEventIndex = -1; 
+       rotateFullEvent();
+    }
+
+    initEvents();
+    setInterval(updateClock, 1000); // Zegar tyka co sekundę
+    setInterval(rotateFullEvent, 5000); // Cały event zmienia się co 5 sekund
   </script>
 
 </body>
