@@ -53,18 +53,25 @@
       gap: 16px;
     }
 
-    /* =========================================
-       2. GÓRNY PASEK SYSTEMOWY (TOP BAR)
-       ========================================= */
-    
-.top-bar {
+   .top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 6px 4px 12px 4px;
-      /* NOWA LINIJKA: Zepchnie pasek w dół o 80 pikseli */
-      margin-top: 80px; 
+      /* Nowe właściwości robiące z paska szklaną ramkę: */
+      padding: 12px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      margin-bottom: 12px;
     }
+
+
+
+
+
+    
     .brand-group {
       display: flex;
       align-items: center;
